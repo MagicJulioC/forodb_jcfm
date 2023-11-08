@@ -1,0 +1,111 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      ITSCH
+      <img src="http://cdhidalgo.tecnm.mx/images/itsch.jpg" alt="" height="45">
+    </a>
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/home">Noticias</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="">Contacto</a>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categorías
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item text-white" href="#">Opción 1</a>
+            <a class="dropdown-item text-white" href="#">Opción 2</a>
+            <a class="dropdown-item text-white" href="#">Opción 3</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a href="#" class="nav-link mx-1"><span class="bi-facebook"></span></a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link mx-1"><span class="bi-twitter"></span></a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link mx-1"><span class="bi-instagram"></span></a>
+    </li>
+  </ul>
+  </div>
+</nav>
+
+
+<div class="container">
+  <div class="row">
+      <div class="col"></div>
+      <div class="col">
+          <div class="card mt-3">
+              <div class="card-header">Agregar pregunta</div>
+              <div class="card-body">
+                  <select class="form-select" [(ngModel)]="newP.categoria">
+                      <option value="General">General</option>
+                      <option value="Programacion">Programacion</option>
+                      <option value="Redes">Redes</option>
+                  </select>
+                  <input type="text" class="form-control mt-3" [(ngModel)]="newP.pregunta">
+                  <button class="btn btn-primary float-end mt-3"(click)="crearPregunta()">
+                      <i class="bi bi-cloud-plus"></i>
+                  </button>
+              </div>
+          </div>
+      </div>
+      <div class="col"></div>
+  </div>
+
+  <div class="row">
+      <div class="col">
+          <table class="table table-dark table-hover">
+              <thead>
+                  <tr>
+                      <th>No</th>
+                      <th>Tema</th>
+                      <th>Usuario</th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let p of preguntas">
+                      <td>{{p.no}}</td>
+                      <td>{{p.pregunta}}</td>
+                      <td>{{p.correo}}</td>
+                      <td class="text-end">
+                          <button class="btn btn-outline-secondary"><i class="bi bi-eye-fill"></i></button>
+                          &nbsp;
+                          <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="editarPregunta(p)"><i class="bi bi-pencil-fill"></i></button>
+                          &nbsp;
+                          <button class="btn btn-outline-danger" (click)="borrarPregunta(p.id)"><i class="bi bi-trash-fill"></i></button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Pregunta</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control"  [(ngModel)]="modP.pregunta">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="modificarPregunta()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

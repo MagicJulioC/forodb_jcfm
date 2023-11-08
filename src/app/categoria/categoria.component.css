@@ -1,0 +1,10 @@
+/* Personaliza el tamaño del carrusel y las imágenes */
+#myCarousel {
+  max-width: 800px; /* Ancho máximo del carrusel */
+  margin: 0 auto; /* Centra el carrusel en la página */
+}
+
+#myCarousel .carousel-inner .carousel-item img {
+  max-height: 300px; /* Altura máxima de las imágenes */
+  margin: 0 auto; /* Centra las imágenes en las diapositivas */
+}
