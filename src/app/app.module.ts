@@ -11,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { ContactoComponent } from './contacto/contacto.component';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { ContactoComponent } from './contacto/contacto.component';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxSpinnerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
